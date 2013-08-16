@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Itsready</title>
+  <meta charset="utf-8">
+  <title>It's Ready</title>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top">
+    <a class="brand" href="/">It's Ready</a>
+    <%= yield :navbar %>
+    <div class="navbar-inner">
+    </div>
+  </div>
 
-<%= yield %>
+  <%= yield %>
 
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
+
 </html>

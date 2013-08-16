@@ -2,9 +2,21 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+if defined?(Bundler)
+  # If you precompile assets before deploying to production, use this line
+  # Bundler.require *Rails.groups(:assets => %w(development test))
+  # If you want your assets lazily compiled in production, use this line
+  # Bundler.require(:default, :assets, Rails.env)
+
+  # only require the given bundler groups in the environments specified here
+  bundle_groups = {
+    :assets     => %w{development test precompilation production},
+    :app        => %w{test}, # load web gems for controllers
+    :monitoring => %w{production},
+    :deployment => %w{development} # change if no longer deploy from dev box
+  }
+  Bundler.require *Rails.groups(bundle_groups)
+end
 
 module Itsready
   class Application < Rails::Application
@@ -19,5 +31,12 @@ module Itsready
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+
+    # list asset files to be precompiled for production
+    config.assets.precompile = [
+      'application.css','application.js',
+      'glyphicons-halflings.png', 'glyphicons-halflings-white.png'
+    ]
   end
 end

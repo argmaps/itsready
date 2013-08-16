@@ -39,7 +39,7 @@ Itsready::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
@@ -53,4 +53,16 @@ Itsready::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  post "/login" => "sessions#create"
+  get "/login" => "sessions#new", :as => :log_in
+  get "/logout" => "sessions#destroy"
+  get "/register" => "users#new"
+  get "/home" => "users#current_user_home", :as => :current_user_home
+
+  resources :users, :except => [:index, :destroy]
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  root :to => "home#index"
 end

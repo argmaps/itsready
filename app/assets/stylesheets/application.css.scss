@@ -1,0 +1,7 @@
+/* Do not include Sprocket =require_self line in this file.
+   If you do, updates to @imported files won't be reflected in application.css on save. */
+
+/* Vendor */
+@import 'bootstrap';
+
+@import 'user';
