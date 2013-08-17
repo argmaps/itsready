@@ -1,0 +1,40 @@
+<%= content_for :navbar do %>
+  <ul class="nav pull-right">
+    <li class="active"><a href="<%= user_notifications_path %>"> Notifications</a></li>
+    <li><a href="<%= user_customers_path %>">Customers</a></li>
+    <li><a href="#">Reports</a></li>
+    <li class="divider-vertical"></li>
+    <li><a href="/logout">Log out</a></li>
+  </ul>
+<% end %>
+
+<h1>Listing notifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Message</th>
+      <th>Ready</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.customer.first_name %> <%= notification.customer.last_name %></td>
+        <td><%= notification.message %></td>
+        <td><%= notification.ready %></td>
+        <td><%= link_to 'Edit', edit_user_notification_path(notification, current_user) %></td>
+        <td><%= link_to 'Destroy', [current_user, notification], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notification', new_user_notification_path(current_user) %>

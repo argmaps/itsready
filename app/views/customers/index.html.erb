@@ -1,0 +1,42 @@
+<%= content_for :navbar do %>
+  <ul class="nav pull-right">
+    <li><a href="<%= user_notifications_path %>"> Notifications</a></li>
+    <li class="active"><a href="<%= user_customers_path %>">Customers</a></li>
+    <li><a href="#">Reports</a></li>
+    <li class="divider-vertical"></li>
+    <li><a href="/logout">Log out</a></li>
+  </ul>
+<% end %>
+
+<h1>Listing customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Country code</th>
+      <th>Phone number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.first_name %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.country_code %></td>
+        <td><%= customer.phone %></td>
+        <td><%= link_to 'Edit', edit_user_customer_path(current_user, customer) %></td>
+        <td><%= link_to 'Destroy', [current_user, customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_user_customer_path %>

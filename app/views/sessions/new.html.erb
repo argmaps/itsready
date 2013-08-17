@@ -1,0 +1,16 @@
+<%= content_for :navbar do %>
+  <ul class="nav pull-right">
+    <li class="divider-vertical"></li>
+    <li><a href="/register">Sign up</a></li>
+  </ul>
+<% end %>
+
+<%= simple_form_for(sessions_path) do |f| %>
+  <fieldset>
+    <%= f.input :email, label: false, placeholder: 'Email Address' %>
+    <%= f.input :password, label: false, placeholder: 'Password' %>
+    <div class="form-actions">
+      <%= f.submit "Log in", class: 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>

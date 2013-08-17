@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        redirect_to current_user_home_path if current_user
+        redirect_to user_notifications_path(current_user) if current_user
       end
     end
   end

@@ -11,13 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130816103101) do
+ActiveRecord::Schema.define(version: 20130817094959) do
 
   create_table "customers", force: true do |t|
-    t.string "first_name",   null: false
-    t.string "last_name",    null: false
-    t.string "country_code"
-    t.string "phone_number", null: false
+    t.integer  "user_id",                null: false
+    t.string   "first_name",             null: false
+    t.string   "last_name",              null: false
+    t.integer  "country_code", limit: 4, null: false
+    t.integer  "phone",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "customer_id",                 null: false
+    t.integer  "user_id",                     null: false
+    t.text     "message",                     null: false
+    t.boolean  "ready",       default: false
+    t.boolean  "sent",        default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

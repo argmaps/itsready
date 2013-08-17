@@ -1,0 +1,13 @@
+<%= content_for :navbar do %>
+  <ul class="nav pull-right">
+    <li class="active"><a href="<%= user_notifications_path %>"> Notifications</a></li>
+    <li><a href="<%= user_customers_path %>">Customers</a></li>
+    <li><a href="#">Reports</a></li>
+    <li class="divider-vertical"></li>
+    <li><a href="/logout">Log out</a></li>
+  </ul>
+<% end %>
+
+<h1>New notification</h1>
+
+<%= render 'form' %>

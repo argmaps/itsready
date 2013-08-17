@@ -8,9 +8,8 @@ class SessionsController < ApplicationController
   def create
     respond_to do |format|
       if @user = login(adapted_params[:email], adapted_params[:password], remember_me=true)
-        set_new_csrf_token_in_header
         format.json { render json: @user, :status => :ok }
-        format.html { redirect_back_or_to(current_user_home_path) }
+        format.html { redirect_back_or_to(user_notifications_path(current_user)) }
       else
         error_msg = "Login failed. Please try again."
         format.json { render :json => {error: error_msg}, :status => :unprocessable_entity }
@@ -27,7 +26,7 @@ class SessionsController < ApplicationController
 
   private
   def adapted_params
-    permitted_params[:user]
+    params.require('/sessions').permit(:email, :password)
   end
 
 end

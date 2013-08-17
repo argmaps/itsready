@@ -58,9 +58,11 @@ Itsready::Application.routes.draw do
   get "/login" => "sessions#new", :as => :log_in
   get "/logout" => "sessions#destroy"
   get "/register" => "users#new"
-  get "/home" => "users#current_user_home", :as => :current_user_home
 
-  resources :users, :except => [:index, :destroy]
+  resources :users, :except => [:index, :destroy] do
+    resources :notifications
+    resources :customers
+  end
 
   resources :sessions, only: [:new, :create, :destroy]
 

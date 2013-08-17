@@ -1,6 +1,6 @@
 class PermittedParams < Struct.new(:params, :user)
   def user
-    params.permit(user: user_params)
+    params.require(:user).permit(user_params)
   end
 
   def user_params
@@ -8,7 +8,7 @@ class PermittedParams < Struct.new(:params, :user)
       :id,
       :email,
       :password,
-      :user
+      :company
     ]
   end
 end

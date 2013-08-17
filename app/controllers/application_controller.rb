@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def singular_model_name
     self.class.to_s.gsub('Controller', '').underscore.singularize.downcase
   end
+
+  def set_current_user
+    User.current = current_user
+  end
 end
