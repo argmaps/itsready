@@ -30,7 +30,7 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1
   def update
     if @customer.update(customer_params)
-      redirect_to user_customers_path(current_user), notice: 'Customer was successfully updated.'
+      redirect_to user_customers_path, notice: 'Customer was successfully updated.'
     else
       render action: 'edit'
     end
@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   def destroy
     @customer.destroy
-    redirect_to customers_url, notice: 'Customer was successfully destroyed.'
+    redirect_to user_customers_path, notice: 'Customer was successfully destroyed.'
   end
 
   private

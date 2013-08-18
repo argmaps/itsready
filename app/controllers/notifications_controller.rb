@@ -39,7 +39,7 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1
   def destroy
     @notification.destroy
-    redirect_to notifications_url, notice: 'Notification was successfully destroyed.'
+    redirect_to user_notifications_path, notice: 'Notification was successfully destroyed.'
   end
 
   private
