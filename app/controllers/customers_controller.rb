@@ -1,14 +1,10 @@
 class CustomersController < ApplicationController
   before_action :set_current_user
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:edit, :update, :destroy]
 
   # GET /customers
   def index
     @customers = Customer.all
-  end
-
-  # GET /customers/1
-  def show
   end
 
   # GET /customers/new
@@ -34,7 +30,7 @@ class CustomersController < ApplicationController
   # PATCH/PUT /customers/1
   def update
     if @customer.update(customer_params)
-      redirect_to @customer, notice: 'Customer was successfully updated.'
+      redirect_to user_customers_path(current_user), notice: 'Customer was successfully updated.'
     else
       render action: 'edit'
     end

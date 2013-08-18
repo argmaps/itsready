@@ -60,8 +60,8 @@ Itsready::Application.routes.draw do
   get "/register" => "users#new"
 
   resources :users, :except => [:index, :destroy] do
-    resources :notifications
-    resources :customers
+    resources :notifications, :except => [:show]
+    resources :customers, :except => [:show]
   end
 
   resources :sessions, only: [:new, :create, :destroy]

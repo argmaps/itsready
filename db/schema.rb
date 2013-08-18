@@ -13,12 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20130817094959) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: true do |t|
-    t.integer  "user_id",                null: false
-    t.string   "first_name",             null: false
-    t.string   "last_name",              null: false
-    t.integer  "country_code", limit: 4, null: false
-    t.integer  "phone",                  null: false
+    t.integer  "user_id",      null: false
+    t.string   "first_name",   null: false
+    t.string   "last_name",    null: false
+    t.integer  "country_code", null: false
+    t.integer  "phone",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,6 +47,6 @@ ActiveRecord::Schema.define(version: 20130817094959) do
     t.datetime "remember_me_token_expires_at"
   end
 
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
 end

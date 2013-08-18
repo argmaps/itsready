@@ -3,7 +3,7 @@ class CreateNotifications < ActiveRecord::Migration
     create_table :notifications do |t|
       t.integer :customer_id, :null => false
       t.integer :user_id, :null => false
-      t.text :message, :null => false
+      t.string :message, :null => false, :limit => 160
       t.boolean :ready, :default => false
       t.boolean :sent, :default => false
 

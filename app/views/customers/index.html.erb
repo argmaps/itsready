@@ -1,23 +1,10 @@
-<%= content_for :navbar do %>
-  <ul class="nav pull-right">
-    <li><a href="<%= user_notifications_path %>"> Notifications</a></li>
-    <li class="active"><a href="<%= user_customers_path %>">Customers</a></li>
-    <li><a href="#">Reports</a></li>
-    <li class="divider-vertical"></li>
-    <li><a href="/logout">Log out</a></li>
-  </ul>
-<% end %>
+<%= render 'main_nav' %>
 
-<h1>Listing customers</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Country code</th>
-      <th>Phone number</th>
-      <th></th>
+      <th>Name</th>
+      <th>Phone</th>
       <th></th>
       <th></th>
     </tr>
@@ -26,12 +13,10 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.first_name %></td>
-        <td><%= customer.last_name %></td>
-        <td><%= customer.country_code %></td>
-        <td><%= customer.phone %></td>
-        <td><%= link_to 'Edit', edit_user_customer_path(current_user, customer) %></td>
-        <td><%= link_to 'Destroy', [current_user, customer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= customer.full_name %></td>
+        <td><%= number_to_phone(customer.phone, country_code: customer.country_code) %></td>
+        <td><%= link_to 'Edit', edit_user_customer_path(current_user, customer), class: 'btn btn-small' %></td>
+        <td><%= link_to 'Destroy', [current_user, customer], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Customer', new_user_customer_path %>
+<%= link_to 'New Customer', new_user_customer_path, class: 'btn btn-primary' %>

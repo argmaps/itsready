@@ -7,10 +7,6 @@ class NotificationsController < ApplicationController
     @notifications = Notification.all
   end
 
-  # GET /notifications/1
-  def show
-  end
-
   # GET /notifications/new
   def new
     @notification = Notification.new
@@ -34,7 +30,7 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1
   def update
     if @notification.update(notification_params)
-      redirect_to @notification, notice: 'Notification was successfully updated.'
+      redirect_to user_notifications_path, notice: 'Notification was successfully updated.'
     else
       render action: 'edit'
     end
