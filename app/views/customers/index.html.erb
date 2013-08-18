@@ -14,7 +14,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.full_name %></td>
-        <td><%= number_to_phone(customer.phone, country_code: customer.country_code) %></td>
+        <td><%= number_to_phone(customer.phone, country_code: customer.country_code, delimiter: '.') %></td>
         <td><%= link_to 'Edit', edit_user_customer_path(current_user, customer), class: 'btn btn-small' %></td>
         <td><%= link_to 'Destroy', [current_user, customer], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %></td>
       </tr>
