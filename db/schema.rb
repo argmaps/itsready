@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20130817094959) do
   end
 
   create_table "notifications", force: true do |t|
-    t.integer  "customer_id",                 null: false
-    t.integer  "user_id",                     null: false
-    t.text     "message",                     null: false
-    t.boolean  "ready",       default: false
-    t.boolean  "sent",        default: false
+    t.integer  "customer_id",                             null: false
+    t.integer  "user_id",                                 null: false
+    t.string   "message",     limit: 160,                 null: false
+    t.boolean  "ready",                   default: false
+    t.boolean  "sent",                    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

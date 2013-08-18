@@ -1,14 +1,13 @@
 <%= simple_form_for(User.new,
-                    :validate => :client_side_validations,
-                    :html => {:class => 'form-vertical span3' }) do |f| %>
+                    :validate => true,
+                    :html => {:class => 'form-vertical span5 offset5' }) do |f| %>
   <fieldset>
     <%= f.input :company, label: false, placeholder: 'Company Name' %>
     <%= f.input :email, label: false, placeholder: 'Email Address' %>
     <%= f.input :password, label: false, placeholder: 'Password' %>
 
     <div class="form-actions">
-      <%= f.submit "Free Trial", class: 'btn btn-primary' %>
-      <%= yield :new_user_form_actions %>
+      <%= f.submit "Free Trial", class: 'btn btn-primary btn-large' %>
     </div>
   </fieldset>
 <% end %>

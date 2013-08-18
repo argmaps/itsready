@@ -1,3 +1,6 @@
-#new_user {
+form#new_user {
   text-align: center;
+  background-color: #eee;
+  padding-top: 20px;
+  @include border-radius(5px);
 }

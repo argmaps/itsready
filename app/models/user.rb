@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :notifications
   has_many :customers
 
+  validates_presence_of :email, :password, :company
+
   def self.current
     RequestStore.store[:user]
   end
