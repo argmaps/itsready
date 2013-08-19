@@ -5,7 +5,7 @@ class NotificationsController < ApplicationController
   # GET /notifications
   def index
     @notifications = current_user.notifications.pending
-    redirect_to new_user_notification_path if @notifications.empty?
+    render 'empty_index' if @notifications.empty?
   end
 
   # GET /notifications/new
