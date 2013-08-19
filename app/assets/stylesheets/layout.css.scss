@@ -1,4 +1,9 @@
-$mainNavHeight: 44px;
+$mainNavHeight: 56px;
+
+.navbar-inner, .navbar-inner .divider-vertical {
+  height: $mainNavHeight;
+  font-size: 17px;
+}
 
 #main {
   position: absolute;
@@ -7,5 +12,5 @@ $mainNavHeight: 44px;
 }
 
 #main-inner {
-  margin-top: 20px;
+  margin-top: 40px;
 }
