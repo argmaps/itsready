@@ -1,0 +1,23 @@
+<%= render 'main_nav' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Phone</th>
+      <th>Total Texts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.customer.full_name %></td>
+        <td><%= notification.sent_at.in_time_zone.strftime('%_m/%d/%y') %></td>
+        <td><%= number_to_phone(notification.customer.phone, country_code: notification.customer.country_code, delimiter: '.') %></td>
+        <td><%= notification.customer.notifications.sent.count %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

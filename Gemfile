@@ -17,6 +17,7 @@ gem 'simple_form', '3.0.0.beta1'
 gem 'client_side_validations', :github => 'bcardarella/client_side_validations', :branch => '4-0-beta'
 gem 'client_side_validations-simple_form', :github => 'joshweinstein/client_side_validations-simple_form', :branch => '2-0-stable'
 gem 'request_store', '1.0.5'
+gem 'browser-timezone-rails', '0.0.6'
 
 group :assets do
   gem 'sass-rails', '4.0.0'

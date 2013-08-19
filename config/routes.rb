@@ -66,5 +66,7 @@ Itsready::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
+  resources :reports, only: [:index]
+
   root :to => "home#index"
 end
