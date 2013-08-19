@@ -23,7 +23,7 @@
     <div class="control-group">
       <%= f.label :message, class: 'control-label'%>
       <div class="controls">
-        <%= f.text_area :message %>
+        <%= f.input :message, label: false, as: :text, input_html: {rows: '6'} %>
       </div>
     </div>
 

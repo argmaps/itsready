@@ -19,8 +19,11 @@
     </div>
   </div>
 
-  <div id="main">
-    <%= yield %>
+  <div id="main" class="row-fluid">
+    <div id="main-inner" class="offset1 span10">
+      <%= render partial: 'shared/flash_messages' %>
+      <%= yield %>
+    </div>
   </div>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>

@@ -30,11 +30,31 @@ class NotificationsController < ApplicationController
 
   # PATCH/PUT /notifications/1
   def update
-    if @notification.update(notification_params)
-      NotifiesCustomer.new(@notification).run if @notification.ready && @notification.sent_at.blank?
-      redirect_to user_notifications_path, notice: 'Notification was successfully updated.'
+    succeeded = Notification.transaction do
+      if @notification.update(notification_params)
+        if @notification.ready && @notification.sent_at.blank?
+          begin
+            NotifiesCustomer.new(@notification).run
+          rescue => error
+            logger.error("Error: #{error}")
+            raise ActiveRecord::Rollback, "#{error.message}"
+          end
+        end
+      else
+        false
+      end
+    end
+
+    if succeeded
+      redirect_to user_notifications_path, notice: "Notified #{@notification.customer.full_name}."
     else
-      render action: 'edit'
+      if notification_params[:ready]
+        copy = "Sorry, we weren't able to notify this customer. Our team has been alerted to this issue. Please try again later."
+        flash[:error] = copy
+        redirect_to user_notifications_path
+      else
+        render action: 'edit'
+      end
     end
   end
 

@@ -5,7 +5,11 @@
   </ul>
 <% end %>
 
-<%= simple_form_for(sessions_path) do |f| %>
+<%= simple_form_for(sessions_path,
+                    :html => {
+                      :id => 'new_session',
+                      :class => 'form-vertical span4 offset4'
+                    }) do |f| %>
   <fieldset>
     <%= f.input :email, label: false, placeholder: 'Email Address' %>
     <%= f.input :password, label: false, placeholder: 'Password' %>

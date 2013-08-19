@@ -3,5 +3,9 @@ $mainNavHeight: 44px;
 #main {
   position: absolute;
   top: $mainNavHeight;
-  padding: 20px;
+  padding-bottom: 20px;
+}
+
+#main-inner {
+  margin-top: 20px;
 }
