@@ -1,3 +1,20 @@
 // Place all the styles related to the Notifications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#add-notification-marker {
+  font-size: 24px;
+  padding-right: 5px;
+}
+
+#notifications-table {
+  border-color: inherit;
+  border-bottom: 1px solid;
+}
+
+#new_notification .dk_container {
+  width: 400px;
+}
+
+#new_notification .dk_options_inner {
+  width: 394px;
+}

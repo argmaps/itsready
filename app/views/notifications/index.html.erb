@@ -1,12 +1,11 @@
 <%= render 'main_nav' %>
 
-<table class="table table-striped table-hover">
+<table id="notifications-table" class="table table-striped table-hover">
   <thead>
     <tr>
       <th class="span2">Name</th>
       <th class="span5">Message</th>
       <th class="span2">It's Ready</th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -21,11 +20,10 @@
             <%= f.input :ready, label: false, input_html: {class: 'checkbox'}%>
           <% end %>
         </td>
-        <td><%= link_to 'Edit', edit_user_notification_path(current_user, notification), class: 'btn' %></td>
         <td><%= link_to 'Delete', [current_user, notification], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Notification', new_user_notification_path(current_user), class: 'btn btn-large btn-primary' %>
+<%= render 'add_notification' %>
