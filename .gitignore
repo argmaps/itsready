@@ -16,14 +16,5 @@
 /tmp
 
 .sass-cache/
-/public/assets/*.js
-/public/assets/*.css
-/public/assets/*.gz
-/public/assets/*.png
-/public/assets/*.yml
-/public/assets/*.eot
-/public/assets/*.woff
-/public/assets/*.ttf
-/public/assets/*.svg
 *.sw?
 config/application.yml
