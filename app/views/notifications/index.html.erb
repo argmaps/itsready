@@ -18,7 +18,7 @@
         <td><%= notification.message %></td>
         <td>
           <%= simple_form_for([current_user, notification]) do |f| %>
-            <%= f.input :ready, label: false %>
+            <%= f.input :ready, label: false, input_html: {class: 'checkbox'}%>
           <% end %>
         </td>
         <td><%= link_to 'Edit', edit_user_notification_path(current_user, notification), class: 'btn btn-small' %></td>
@@ -28,4 +28,4 @@
   </tbody>
 </table>
 
-<%= link_to 'New Notification', new_user_notification_path(current_user), class: 'btn btn-primary' %>
+<%= link_to 'New Notification', new_user_notification_path(current_user), class: 'btn btn-large btn-primary' %>

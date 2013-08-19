@@ -13,9 +13,11 @@
 
 <body>
   <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top">
-    <a class="brand" href="/">It's Ready</a>
-    <%= yield :navbar %>
     <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">It's Ready</a>
+        <%= yield :navbar %>
+      </div>
     </div>
   </div>
 

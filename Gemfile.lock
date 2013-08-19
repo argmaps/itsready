@@ -16,6 +16,16 @@ GIT
     client_side_validations (3.2.2)
 
 GIT
+  remote: git://github.com/iffyuva/flatui-rails.git
+  revision: a2bdfcebfb8f64be1266ed62839911fde38c7729
+  ref: a2bdfcebfb8f64be1266ed62839911fde38c7729
+  specs:
+    flatui-rails (0.0.4)
+      bootstrap-sass (>= 2.3.1)
+      railties (>= 3.1)
+      sass-rails (>= 3.2.0)
+
+GIT
   remote: git://github.com/joshweinstein/client_side_validations-simple_form.git
   revision: f8456a8274e619682dcf2a8ae857f1fa8321e337
   branch: 2-0-stable
@@ -56,9 +66,10 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
-    binding_of_caller (0.7.1)
+    binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (2.1.1.0)
+    bootstrap-sass (2.3.2.1)
+      sass (~> 3.2)
     browser-timezone-rails (0.0.6)
       jquery-rails
       rails (>= 3.1)
@@ -89,7 +100,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
+    method_source (0.8.2)
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
@@ -101,7 +112,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
-    pg (0.15.1)
+    pg (0.16.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -109,9 +120,9 @@ GEM
       slop (~> 3.4)
     pry-nav (0.2.3)
       pry (~> 0.9.10)
-    pry-stack_explorer (0.4.9)
+    pry-stack_explorer (0.4.9.1)
       binding_of_caller (>= 0.7)
-      pry (~> 0.9.11)
+      pry (>= 0.9.11)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -148,7 +159,7 @@ GEM
     simple_form (3.0.0.beta1)
       actionpack (>= 4.0.0.beta, < 4.1)
       activemodel (>= 4.0.0.beta, < 4.1)
-    slop (3.4.5)
+    slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -162,7 +173,7 @@ GEM
     thread_safe (0.1.2)
       atomic
     tilt (1.4.1)
-    treetop (1.4.14)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
     turbolinks (1.3.0)
@@ -181,11 +192,12 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgresql-adapter (= 0.0.1)
-  bootstrap-sass (~> 2.1.1)
+  bootstrap-sass (= 2.3.2.1)
   browser-timezone-rails (= 0.0.6)
   client_side_validations!
   client_side_validations-simple_form!
   coffee-rails (= 4.0.0)
+  flatui-rails!
   jquery-rails
   pry
   pry-nav
