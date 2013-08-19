@@ -4,7 +4,8 @@ class CustomersController < ApplicationController
 
   # GET /customers
   def index
-    @customers = Customer.all
+    @customers = current_user.customers
+    redirect_to new_user_customer_path if @customers.empty?
   end
 
   # GET /customers/new
