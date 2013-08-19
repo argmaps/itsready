@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20130817094959) do
     t.integer  "user_id",                                 null: false
     t.string   "message",     limit: 160,                 null: false
     t.boolean  "ready",                   default: false
-    t.boolean  "sent",                    default: false
+    t.datetime "sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

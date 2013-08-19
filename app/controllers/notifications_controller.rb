@@ -4,7 +4,7 @@ class NotificationsController < ApplicationController
 
   # GET /notifications
   def index
-    @notifications = Notification.all
+    @notifications = current_user.notifications.pending
   end
 
   # GET /notifications/new
@@ -30,6 +30,7 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1
   def update
     if @notification.update(notification_params)
+      NotifiesCustomer.new(@notification).run if @notification.ready && @notification.sent_at.blank?
       redirect_to user_notifications_path, notice: 'Notification was successfully updated.'
     else
       render action: 'edit'

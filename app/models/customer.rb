@@ -7,4 +7,8 @@ class Customer < ModelThatBelongsToUser
   def full_name
     first_name + ' ' + last_name
   end
+
+  def full_phone
+    country_code.to_s + phone.to_s
+  end
 end

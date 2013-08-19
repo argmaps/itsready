@@ -5,7 +5,7 @@ class CreateNotifications < ActiveRecord::Migration
       t.integer :user_id, :null => false
       t.string :message, :null => false, :limit => 160
       t.boolean :ready, :default => false
-      t.boolean :sent, :default => false
+      t.datetime :sent_at
 
       t.timestamps
     end

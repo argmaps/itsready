@@ -18,6 +18,10 @@ if defined?(Bundler)
   Bundler.require *Rails.groups(bundle_groups)
 end
 
+unless ENV['RUNNING_ON_HEROKU'] == 'true'
+  ENV.update YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+end
+
 module Itsready
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -32,6 +36,7 @@ module Itsready
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    config.autoload_paths += %W(#{config.root}/services)
 
     # list asset files to be precompiled for production
     config.assets.precompile = [

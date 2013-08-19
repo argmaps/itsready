@@ -19,8 +19,7 @@
         <td><%= notification.message %></td>
         <td>
           <%= simple_form_for([current_user, notification]) do |f| %>
-            <% disabled = notification.ready.present? ? true : false %>
-            <%= f.input :ready, label: false, class: 'ready-checkbox', disabled: disabled %>
+            <%= f.input :ready, label: false %>
           <% end %>
         </td>
         <td><%= link_to 'Edit', edit_user_notification_path(notification, current_user), class: 'btn btn-small' %></td>
