@@ -2,21 +2,8 @@
    If you do, updates to @imported files won't be reflected in application.css on save. */
 
 /* Vendor */
-/*
-$darkBlue: #4a9ab9;
-$mediumBlue: #1b4d6d;
-$mediumGrey: #a2cede;
-$coldGrey: #f3f3f3;
-
-$bodyBackground: $darkBlue;
-$navbarBackground: $mediumBlue;
-$navbarBackgroundHighlight: $mediumBlue;
-$navbarText: $mediumGrey;
-$tableBackground: $coldGrey;
-$btnPrimaryBackground: $darkBlue;
-*/
-
 @import 'flat-ui';
+
 @import 'global';
 @import 'layout';
 @import 'user';
