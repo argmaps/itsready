@@ -6,16 +6,19 @@ class ReportsController < ApplicationController
   def index
     @data = Array.new.tap do |r|
       current_user.customers.each do |customer|
-        r << customer.notifications.sent.group_by {|n| n.sent_at.to_date}.map do |k,v|
-          {
-            date: k,
+        dates_to_counts = customer.notifications.sent.group("date(sent_at)").count
+        dates_to_counts.each do |date,count|
+          r << {
+            date: date.to_datetime,
             name: customer.full_name,
-            count: v.length,
+            daily_total: count,
             country_code: customer.country_code,
             phone: customer.phone
           }
         end
       end
-    end.flatten!
+    end
+
+    @data.sort_by! {|h| h[:date]}.reverse!
   end
 end

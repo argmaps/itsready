@@ -14,9 +14,9 @@
     <% @data.each do |row| %>
       <tr>
         <td><%= row[:name] %></td>
-        <td><%= row[:date].to_datetime.in_time_zone.strftime('%_m/%d/%y') %></td>
+        <td><%= row[:date].in_time_zone.strftime('%_m/%d/%y') %></td>
         <td><%= number_to_phone(row[:phone], country_code: row[:country_code], delimiter: '.') %></td>
-        <td><%= row[:count] %></td>
+        <td><%= row[:daily_total] %></td>
       </tr>
     <% end %>
   </tbody>
