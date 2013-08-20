@@ -11,12 +11,12 @@
   </thead>
 
   <tbody>
-    <% @notifications.each do |notification| %>
+    <% @data.each do |row| %>
       <tr>
-        <td><%= notification.customer.full_name %></td>
-        <td><%= notification.sent_at.in_time_zone.strftime('%_m/%d/%y') %></td>
-        <td><%= number_to_phone(notification.customer.phone, country_code: notification.customer.country_code, delimiter: '.') %></td>
-        <td><%= notification.customer.notifications.sent.count %>
+        <td><%= row[:name] %></td>
+        <td><%= row[:date].to_datetime.in_time_zone.strftime('%_m/%d/%y') %></td>
+        <td><%= number_to_phone(row[:phone], country_code: row[:country_code], delimiter: '.') %></td>
+        <td><%= row[:count] %></td>
       </tr>
     <% end %>
   </tbody>
