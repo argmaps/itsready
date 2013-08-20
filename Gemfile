@@ -9,7 +9,8 @@ gem 'activerecord-postgresql-adapter', '0.0.1'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '1.3.0'
+gem 'jquery-turbolinks', '1.0.0'
 
 gem 'twilio-ruby', '3.10.1'
 gem 'sorcery', :github => 'NoamB/sorcery', :ref => 'bacf0c16b82f85604ee019a45ef7728408f190d1'
