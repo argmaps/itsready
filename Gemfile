@@ -25,7 +25,7 @@ group :assets do
   gem 'bootstrap-sass', '2.3.2.1'
   gem 'coffee-rails', '4.0.0'
   gem 'uglifier', '2.0.1'
-  gem 'flatui-rails', :github => 'iffyuva/flatui-rails', :ref => 'a2bdfcebfb8f64be1266ed62839911fde38c7729'
+  gem 'flatui-rails', :github => 'joshweinstein/flatui-rails'
 end
 
 group :development, :test do

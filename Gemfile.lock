@@ -16,16 +16,6 @@ GIT
     client_side_validations (3.2.2)
 
 GIT
-  remote: git://github.com/iffyuva/flatui-rails.git
-  revision: a2bdfcebfb8f64be1266ed62839911fde38c7729
-  ref: a2bdfcebfb8f64be1266ed62839911fde38c7729
-  specs:
-    flatui-rails (0.0.4)
-      bootstrap-sass (>= 2.3.1)
-      railties (>= 3.1)
-      sass-rails (>= 3.2.0)
-
-GIT
   remote: git://github.com/joshweinstein/client_side_validations-simple_form.git
   revision: f8456a8274e619682dcf2a8ae857f1fa8321e337
   branch: 2-0-stable
@@ -33,6 +23,15 @@ GIT
     client_side_validations-simple_form (2.0.1)
       client_side_validations (~> 3.2.0)
       simple_form (>= 2.0.3, < 4.0)
+
+GIT
+  remote: git://github.com/joshweinstein/flatui-rails.git
+  revision: 08fc153c0877faabe1a7b64c61b09a28859539ad
+  specs:
+    flatui-rails (0.0.4)
+      bootstrap-sass (>= 2.2.2)
+      railties (>= 3.1)
+      sass-rails (>= 3.2.0)
 
 GEM
   remote: https://rubygems.org/

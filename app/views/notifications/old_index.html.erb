@@ -2,30 +2,34 @@
 
 <fieldset>
   <table class="table table-striped table-hover">
-    <%= simple_form_for([current_user, @new_notification],
+    <%= simple_form_for([current_user, Customer.new],
                         validate: true
-                       ) do |n| %>
+                       ) do |f| %>
 
       <tr>
-        <%= n.simple_fields_for :customer do |c| %>
         <td class="span5">
-          <%= n.select :customer_id, options_for_select(current_user.customers.map{ |c| [c.full_name, c.id, {'data-phone' => c.phone}] }), include_blank: true %>
-          <%= c.input :first_name, as: :hidden %>
-          <%= c.input :last_name, as: :hidden %>
+          <% customers = current_user.customers.map{ |c| [c.full_name, c.id, {'data-phone' => c.phone}] } %>
+          <%= collection_select(:notification, :customer_id, customers, :id, :full_name,
+                                autofocus: true, include_blank: true) %>
+
+          <%= f.select :id, options_for_select(current_user.customers.map{ |c| [c.full_name, c.id, {'data-phone' => c.phone}] }) %>
+
+          <%= hidden_field_tag('customer[first_name]') -%>
+          <%= hidden_field_tag('customer[last_name]') -%>
         </td>
         <td class="span5">
           <div class="input-prepend input-append">
             <span id="country-code-prepend" class="add-on"><span id="country-code-prefix" class="fui-plus-24"></span></span>
-            <%= c.text_field :country_code, value: '84' %>
+            <%= f.text_field :country_code, value: '84' %>
             <span id="country-code-append" class="add-on">-</span>
           </div>
-          <%= c.text_field :phone, placeholder: '1203952424' %>
+          <%= f.text_field :phone, placeholder: '1203952424' %>
         </td>
-        <td><%= n.text_area :message %></td>
-        <td><%= n.check_box :ready, class: 'checkbox' %>It's Ready</td>
-        <td><%= n.submit 'Create', class: 'btn btn-primary' %></td>
-
+        <%= f.simple_fields_for :notification do |n| %>
+          <td><%= n.text_area :message %></td>
+          <td><%= n.check_box :ready, class: 'checkbox' %>It's Ready</td>
         <% end %>
+        <td><%= f.submit 'Create', class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </table>
