@@ -15,6 +15,16 @@
   width: 394px;
 }
 
+#new-notification-wrapper {
+  background-color: #ECF0F1;
+  padding-top: 12px;
+  @include border-radius(5px);
+
+  td {
+    border-top: none;
+  }
+}
+
 th.itsready {
   color: #1abc9c;
   width: 60px;
@@ -29,4 +39,8 @@ label[for='notification_ready'] {
   padding: 10px;
   position: relative;
   top: 3px;
+}
+
+#notification_customer_attributes_phone {
+  padding: 3px 0 3px 10px;
 }
