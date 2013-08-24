@@ -5,9 +5,25 @@
     <%= f.input :company, label: false, placeholder: 'Company Name' %>
     <%= f.input :email, label: false, placeholder: 'Email Address' %>
     <%= f.input :password, label: false, placeholder: 'Password' %>
-
+    <%= f.country_select :country, nil, iso_codes: true %>
     <div class="form-actions">
       <%= f.submit "Free Trial", class: 'btn btn-primary btn-large' %>
     </div>
   </fieldset>
 <% end %>
+
+<%= content_for :js do %>
+  var format = function(country) {
+    var abbrev = country.id.toUpperCase();
+    return "<i class='icon-flag-"+abbrev+"'></i>"+country.text;
+  };
+  $('#user_country').select2({
+    width: 206,
+    formatResult: format,
+    formatSelection: format,
+    escapeMarkup: function(c) {
+      return c;
+    }
+  });
+<% end %>
+

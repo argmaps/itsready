@@ -19,6 +19,8 @@ gem 'client_side_validations', :github => 'bcardarella/client_side_validations',
 gem 'client_side_validations-simple_form', :github => 'joshweinstein/client_side_validations-simple_form', :branch => '2-0-stable'
 gem 'request_store', '1.0.5'
 gem 'browser-timezone-rails', '0.0.6'
+gem 'countries', '0.9.2'
+gem 'country_select', '1.2.0'
 
 group :assets do
   gem 'sass-rails', '4.0.0'

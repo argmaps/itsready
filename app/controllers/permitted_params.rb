@@ -8,7 +8,8 @@ class PermittedParams < Struct.new(:params, :user)
       :id,
       :email,
       :password,
-      :company
+      :company,
+      :country
     ]
   end
 end

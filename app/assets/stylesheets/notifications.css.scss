@@ -1,46 +1,10 @@
-.customer_first_name, .customer_last_name, #customer_country_code, #customer_phone {
+.customer_first_name, .customer_last_name, #customer_phone {
   display: inline;
 }
 
 #notifications-table {
   border-color: inherit;
   border-bottom: 1px solid;
-}
-
-#notification_customer_attributes_country_code {
-  width: 28px;
-  @include border-radius(0 0 0 0);
-}
-
-#country-code-prepend {
-  padding: 13px 10px 7px 7px;
-  position: relative;
-  left: 3px;
-  box-sizing: border-box;
-  height: 41px;
-  border: 2px solid #dce4ec;
-  border-right: none;
-  @include border-radius(5px 0 0 5px);
-}
-
-#country-code-append {
-  font-weight: bold;
-  font-size: 24px;
-  padding: 8px 2px 9px 2px;
-  border: 2px solid #dce4ec;
-  border-left: none;
-  @include border-radius(0 0 0 0);
-}
-
-#country-code-prefix {
-  position: relative;
-  top: -2px;
-}
-
-#notification_customer_attributes_phone {
-  position: relative;
-  left: -4px;
-  @include border-radius(0 5px 5px 0);
 }
 
 #new_notification .dk_container {
@@ -54,4 +18,15 @@
 th.itsready {
   color: #1abc9c;
   width: 60px;
+}
+
+.select2-container {
+  width: 100%;
+}
+
+label[for='notification_ready'] {
+  display: inline;
+  padding: 10px;
+  position: relative;
+  top: 3px;
 }

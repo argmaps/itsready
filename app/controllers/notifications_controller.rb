@@ -28,10 +28,26 @@ class NotificationsController < ApplicationController
     end
     @notification = Notification.new(adapted_params)
 
-    if @notification.save
-      redirect_to user_notifications_path, notice: 'Notification was successfully created.'
-    else
-      render action: 'new'
+    respond_to do |format|
+      if @notification.save
+        format.js do
+          if @notification.ready && @notification.sent_at.blank?
+            begin
+              NotifiesCustomer.new(@notification).run
+            rescue => error
+              logger.error("Error: #{error}")
+              raise ActiveRecord::Rollback, "#{error.message}"
+            end
+            flash[:success] = "Notified #{@notification.customer.full_name}."
+            render 'created_and_sent_notification'
+          else
+            render 'add_notification'
+          end
+        end
+        format.html { redirect_to user_notifications_path, notice: 'Notification was successfully created.' }
+      else
+        format.html { render action: 'new' }
+      end
     end
   end
 

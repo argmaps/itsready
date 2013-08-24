@@ -2,12 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   def create
-    p = permitted_params
-    @user = User.new({
-      email: p[:email],
-      password: p[:password],
-      company: p[:company]
-    })
+    @user = User.new(permitted_params)
 
     respond_to do |format|
       if @user.save
