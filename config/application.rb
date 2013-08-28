@@ -41,11 +41,7 @@ module Itsready
     # list asset files to be precompiled for production
     config.assets.precompile = [
       'application.css','application.js',
-      'glyphicons-halflings.png', 'glyphicons-halflings-white.png',
-      'select2.png', 'select2-spinner.gif',
-      'Flat-UI-Icons-24.woff',
-      'Flat-UI-Icons-24.ttf',
-      'Flat-UI-Icons-24.svg'
+      'glyphicons-halflings.png', 'glyphicons-halflings-white.png'
     ]
   end
 end
