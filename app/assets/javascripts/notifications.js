@@ -51,26 +51,10 @@ $(function() {
             var phone = $('#notification_customer_id option[value='+val+']').data('phone');
             $('#notification_customer_attributes_phone').val(phone)
                                                         .attr('disabled', true);
-            $('#notification_message').focus();
+            $('#notification_ready').focus();
         } else {
             $('#notification_customer_attributes_phone').attr('disabled', false)
                                                         .focus();
-        }
-    });
-
-    $('#notification_message').select2({
-        dropdownAutoWidth: false,
-        selectOnBlur: true,
-        createSearchChoice: function(term) {
-            var $select2 = $('#notification_message');
-            var cb = function(event) {
-                $('#notification_message[type=hidden]').val(event.val);
-
-                // don't run this callback again
-                $select2.off('select2-selecting', cb);
-            };
-            $select2.on('select2-selecting', cb);
-            return {id:term, text:term};
         }
     });
 
