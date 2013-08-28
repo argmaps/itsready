@@ -14,12 +14,12 @@ $(function() {
         allowClear: true,
         dropdownAutoWidth: false,
         selectOnBlur: true,
-        formatNoMatches: function() {
-            var html = "<li class='select2-no-results'>Create new customer</li>";
-            return html;
-        },
-        createSearchChoice: function(term) {
+        createSearchChoice: function(term, data) {
             var $select2 = $('#notification_customer_id');
+
+            // clear any previously attached callbacks
+            $select2.off('select2-selecting', cb);
+
             var cb = function(event) {
                 // remove 'Create' from the selection text so we just see the new
                 // customer name in the input field
@@ -36,16 +36,21 @@ $(function() {
             };
             $select2.on('select2-selecting', cb);
 
-            return {id:term, text:'Create ' + '\"'+term+'\"'};
+            return {id:term, text:'Click to create ' + '\"'+term+'\"'};
         }
     }).on('change', function() {
         var val = $(this).val(),
-            existingCustomerSelected = /^\d+$/.test(val),
-            phone = $('#notification_customer_id option[value='+val+']').data('phone');
-        $('#notification_customer_attributes_phone').val(phone);
+            existingCustomerSelected = /^\d+$/.test(val);
 
         if (existingCustomerSelected) {
-            $('#notification_customer_attributes_phone').attr('disabled', true);
+            // needed so that typing and then arrowing down to a selection and
+            // pressing enter doesn't result in the customer id appearing in
+            // the select box
+            $('#notification_customer_id').select2('val', val);
+
+            var phone = $('#notification_customer_id option[value='+val+']').data('phone');
+            $('#notification_customer_attributes_phone').val(phone)
+                                                        .attr('disabled', true);
             $('#notification_message').focus();
         } else {
             $('#notification_customer_attributes_phone').attr('disabled', false)

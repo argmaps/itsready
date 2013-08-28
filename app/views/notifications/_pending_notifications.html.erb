@@ -1,0 +1,16 @@
+<h3>Pending Notifications</h3>
+<table id="notifications-table" class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th class="span5">Name</th>
+      <th class="span5">Phone</th>
+      <th class="span2">Description</th>
+      <th class="itsready">It's Ready</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render partial: 'notification_row', collection: @notifications, as: :notification %>
+  </tbody>
+</table>

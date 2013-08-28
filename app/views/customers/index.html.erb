@@ -1,5 +1,10 @@
 <%= render 'main_nav' %>
 
+<%= link_to 'New Customer', new_user_customer_path, class: 'btn btn-large btn-primary' %>
+
+<br />
+<br />
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -14,12 +19,10 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= customer.full_name %></td>
-        <td><%= number_to_phone(customer.phone, country_code: customer.country_code, delimiter: '.') %></td>
+        <td><%= number_to_phone(customer.phone, delimiter: '.') %></td>
         <td><%= link_to 'Edit', edit_user_customer_path(current_user, customer), class: 'btn' %></td>
-        <td><%= link_to 'Delete', [current_user, customer], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to '', [current_user, customer], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger fui-cross-24' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Customer', new_user_customer_path, class: 'btn btn-large btn-primary' %>

@@ -16,12 +16,7 @@
   <fieldset>
     <%= f.input :first_name, label: false, placeholder: 'First Name', autofocus: true %>
     <%= f.input :last_name, label: false, placeholder: 'Last Name' %>
-
-    <div class="input-prepend">
-      <span id="country_code_prepend" class="add-on">+</span>
-      <%= f.text_field :country_code, label: false, placeholder: '84' %>
-      <%= f.text_field :phone, label: false, placeholder: '1203952424' %>
-    </div>
+    <%= f.text_field :phone, label: false, placeholder: '1203952424' %>
 
     <div class="form-actions">
       <%= f.submit nil, class: 'btn btn-large btn-primary' %>

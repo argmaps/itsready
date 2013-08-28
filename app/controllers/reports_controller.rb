@@ -12,7 +12,6 @@ class ReportsController < ApplicationController
             date: date.to_datetime,
             name: customer.full_name,
             daily_total: count,
-            country_code: customer.country_code,
             phone: customer.phone
           }
         end

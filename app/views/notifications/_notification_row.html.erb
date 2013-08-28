@@ -1,6 +1,6 @@
 <tr>
   <td><%= notification.customer.full_name %></td>
-  <td><%= number_to_phone(notification.customer.phone, country_code: notification.customer.country_code, delimiter: '.') %></td>
+  <td><%= number_to_phone(notification.customer.phone, delimiter: '.') %></td>
   <td><%= notification.message %></td>
   <td>
     <%= simple_form_for([current_user, notification]) do |f| %>

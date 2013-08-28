@@ -7,7 +7,6 @@ class NotificationsController < ApplicationController
     @notifications = current_user.notifications.pending
     @new_notification = current_user.notifications.new
     @new_notification.build_customer
-    render 'empty_index' if @notifications.empty?
   end
 
   # GET /notifications/new
@@ -96,6 +95,6 @@ class NotificationsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def notification_params
       params.require(:notification).permit(:customer_id, :message, :ready, :sent,
-                                           customer_attributes: [:first_name, :last_name, :country_code, :phone])
+                                           customer_attributes: [:first_name, :last_name, :phone])
     end
 end

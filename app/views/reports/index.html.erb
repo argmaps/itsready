@@ -15,7 +15,7 @@
       <tr>
         <td><%= row[:name] %></td>
         <td><%= row[:date].in_time_zone.strftime('%_m/%d/%y') %></td>
-        <td><%= number_to_phone(row[:phone], country_code: row[:country_code], delimiter: '.') %></td>
+        <td><%= number_to_phone(row[:phone], delimiter: '.') %></td>
         <td><%= row[:daily_total] %></td>
       </tr>
     <% end %>

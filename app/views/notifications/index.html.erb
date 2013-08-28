@@ -1,56 +1,7 @@
 <%= render 'main_nav' %>
 
-<fieldset>
-  <h3>New Notification</h3>
-  <div id="new-notification-wrapper">
-  <table class="table">
-    <%= simple_form_for([current_user, @new_notification],
-                        remote: true,
-                        validate: true
-                       ) do |n| %>
+<%= render 'add_notification' %>
 
-      <tr>
-        <%= n.simple_fields_for :customer do |c| %>
-        <td class="span4">
-          <%= n.select :customer_id, options_for_select(current_user.customers.map{ |c| [c.full_name, c.id, {'data-phone' => c.phone}] }), include_blank: true %>
-          <%= c.input :first_name, as: :hidden %>
-          <%= c.input :last_name, as: :hidden %>
-        </td>
-        <td class="span2">
-          <%= c.hidden_field :country_code, value: '84' %>
-          <%= c.text_field :phone, placeholder: '1203952424' %>
-        </td>
-        <td class="span3">
-          <%= n.select :message, options_for_select(["It's ready."]) %>
-          <%= n.input :message, as: :hidden %>
-        </td>
-        <td><%= n.input :ready, label: "It's ready", class: 'checkbox' %></td>
-        <td>
-          <%= button_tag(:type => 'submit', :id => 'create-notification', :class => 'btn btn-primary', :'data-loading-text' => 'Creating...') do %>
-            Create
-          <% end %>
-        </td>
-
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
-  </div>
-</fieldset>
-
-<h3>Pending Notifications</h3>
-<table id="notifications-table" class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th class="span5">Name</th>
-      <th class="span5">Phone</th>
-      <th class="span2">Description</th>
-      <th class="itsready">It's Ready</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <%= render partial: 'notification_row', collection: @notifications, as: :notification %>
-  </tbody>
-</table>
+<% unless @notifications.empty? %>
+  <%= render 'pending_notifications' %>
+<% end %>

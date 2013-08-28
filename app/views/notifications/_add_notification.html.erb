@@ -1,4 +1,36 @@
-<%= simple_form_for([current_user, current_user.notifications.new]) do |f| %>
-      <%= hidden_field_tag('notification[message]', "It's ready.") -%>
-      <%= collection_select(:notification, :customer_id, current_user.customers, :id, :full_name, id: 'customer-name-select') %>
-<% end %>
+<fieldset>
+  <h3>New Notification</h3>
+  <div id="new-notification-wrapper">
+  <table class="table">
+    <%= simple_form_for([current_user, @new_notification],
+                        remote: true,
+                        validate: true
+                       ) do |n| %>
+
+      <tr>
+        <%= n.simple_fields_for :customer do |c| %>
+        <td class="span4">
+          <%= n.select :customer_id, options_for_select(current_user.customers.map{ |c| [c.full_name, c.id, {'data-phone' => c.phone}] }), include_blank: true %>
+          <%= c.input :first_name, as: :hidden %>
+          <%= c.input :last_name, as: :hidden %>
+        </td>
+        <td class="span2">
+          <%= c.text_field :phone, placeholder: '1203952424' %>
+        </td>
+        <td class="span4">
+          <%= n.select :message, options_for_select(["It's ready."]) %>
+          <%= n.input :message, as: :hidden %>
+        </td>
+        <td><%= n.input :ready, label: "It's ready", class: 'checkbox' %></td>
+        <td>
+          <%= button_tag(:type => 'submit', :id => 'create-notification', :class => 'btn btn-primary', :'data-loading-text' => 'Creating...') do %>
+            Create
+          <% end %>
+        </td>
+
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  </div>
+</fieldset>
