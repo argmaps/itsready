@@ -15,11 +15,7 @@
 <body>
   <div id="main-nav" class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <% if (controller.class == UsersController && controller.action_name == 'new') || controller.class == HomeController || controller.class == SessionsController %>
-        <a class="brand" href="/">It's Ready</a>
-      <% else %>
-        <a class="brand" href="/"><%= image_tag 'fv_logo.png', style: 'height: 30px; width: 76px; position: relative; left: 10px; top: -4px'%></a>
-      <% end %>
+      <a class="brand" href="/">It's Ready</a>
       <%= yield :navbar %>
     </div>
   </div>

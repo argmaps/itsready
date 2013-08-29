@@ -1,5 +1,11 @@
 $mainNavHeight: 56px;
 
+#main-nav {
+  .brand {
+    margin-left: 5px;
+  }
+}
+
 .navbar-inner, .navbar-inner .divider-vertical {
   height: $mainNavHeight;
   font-size: 17px;
