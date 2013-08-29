@@ -51,8 +51,5 @@ $(function() {
     $('form.new_notification')
         .bind('ajax:beforeSend', function() {
             $('#create-notification').button('loading');
-        })
-        .bind('ajax:success', function() {
-            $('#create-notification').button('reset');
         });
 });
