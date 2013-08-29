@@ -4,7 +4,7 @@
   <td><%= notification.message %></td>
   <td>
     <%= simple_form_for([current_user, notification]) do |f| %>
-      <%= f.input :ready, label: false, input_html: {class: 'checkbox'}%>
+      <%= f.input :ready, label: false, wrapper_html: {class: 'checkbox'} %>
     <% end %>
   </td>
   <td><%= link_to '', [current_user, notification], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn fui-cross-24' %></td>

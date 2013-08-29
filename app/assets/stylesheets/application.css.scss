@@ -2,8 +2,9 @@
    If you do, updates to @imported files won't be reflected in application.css on save. */
 
 /* Vendor */
+@import 'bootstrap';
 @import 'rails-sass-images';
-@import 'flat-ui';
+@import 'flatui/flat-ui';
 @import 'bootstrap-formhelpers-countries.flags';
 
 @import 'global';

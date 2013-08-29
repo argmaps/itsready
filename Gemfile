@@ -24,11 +24,10 @@ gem 'country_select', '1.2.0'
 
 group :assets do
   gem 'sass-rails', '4.0.0'
+  gem 'rails-sass-images', '0.3' # helpers for css, like: `inline('my.png')`
   gem 'bootstrap-sass', '2.3.2.1'
   gem 'coffee-rails', '4.0.0'
   gem 'uglifier', '2.0.1'
-  gem 'flatui-rails', :github => 'joshweinstein/flatui-rails'
-  gem 'rails-sass-images', '0.3' # helpers for css, like: `inline('my.png')`
 end
 
 group :development, :test do
