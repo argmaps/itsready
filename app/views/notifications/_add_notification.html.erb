@@ -19,7 +19,7 @@
         </td>
         <td class="span3">
           <%= hidden_field_tag 'notification[message]', "It's ready." %>
-          <%= n.input :ready, label: "It's Ready", wrapper_html: {class: 'checkbox'} %>
+          <%= n.input :ready, label: "Send now.", wrapper_html: {class: 'checkbox'} %>
         </td>
         <td>
           <%= button_tag(:type => 'submit', :id => 'create-notification', :class => 'btn btn-primary', :'data-loading-text' => 'Creating...') do %>
