@@ -39,9 +39,6 @@ module Itsready
     config.autoload_paths += %W(#{config.root}/services)
 
     # list asset files to be precompiled for production
-    config.assets.precompile = [
-      'application.css','application.js',
-      'glyphicons-halflings.png', 'glyphicons-halflings-white.png'
-    ]
+    # config.assets.precompile += ['myfile.png']
   end
 end

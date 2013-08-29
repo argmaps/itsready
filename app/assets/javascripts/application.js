@@ -14,6 +14,5 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require flat-ui
-//= require select2
 //= require_tree .
 //= require turbolinks

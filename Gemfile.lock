@@ -33,14 +33,6 @@ GIT
       railties (>= 3.1)
       sass-rails (>= 3.2.0)
 
-GIT
-  remote: git://github.com/joshweinstein/select2-rails.git
-  revision: 0ee7b0e9249b03ce1afc6c8df9c79aafa9b5b788
-  specs:
-    select2-rails (3.4.8)
-      sass-rails
-      thor (~> 0.14)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -94,6 +86,7 @@ GEM
     country_select (1.2.0)
     currencies (0.4.2)
     debug_inspector (0.0.2)
+    dimensions (1.2.0)
     erubis (2.7.0)
     execjs (2.0.1)
     faraday (0.8.8)
@@ -147,6 +140,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
+    rails-sass-images (0.3)
+      dimensions (> 0)
+      mime-types (> 0)
+      sass (> 0)
+      sprockets (> 0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -219,11 +217,11 @@ DEPENDENCIES
   pry-nav
   pry-stack_explorer
   rails (= 4.0.0)
+  rails-sass-images (= 0.3)
   rails_12factor
   request_store (= 1.0.5)
   sass-rails (= 4.0.0)
   sdoc
-  select2-rails!
   simple_form (= 3.0.0.beta1)
   sorcery!
   turbolinks (= 1.3.0)

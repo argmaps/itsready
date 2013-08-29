@@ -28,7 +28,7 @@ group :assets do
   gem 'coffee-rails', '4.0.0'
   gem 'uglifier', '2.0.1'
   gem 'flatui-rails', :github => 'joshweinstein/flatui-rails'
-  gem 'select2-rails', :github => 'joshweinstein/select2-rails'
+  gem 'rails-sass-images', '0.3' # helpers for css, like: `inline('my.png')`
 end
 
 group :development, :test do
