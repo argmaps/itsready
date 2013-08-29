@@ -1,4 +1,4 @@
-<tr>
+<tr id="notification-<%= notification.id %>">
   <td><%= notification.customer.full_name %></td>
   <td><%= number_to_phone(notification.customer.phone, delimiter: '.') %></td>
   <td><%= notification.message %></td>
@@ -8,5 +8,5 @@
       <%= f.submit 'Send', class: 'btn btn-primary' %>
     <% end %>
   </td>
-  <td><%= link_to '', [current_user, notification], method: :delete, data: { confirm: 'Delete this notification?' }, class: 'btn fui-cross-24' %></td>
+  <td><%= link_to '', [current_user, notification], method: :delete, remote: true, data: { confirm: 'Delete this notification?' }, class: 'btn fui-cross-24' %></td>
 </tr>
