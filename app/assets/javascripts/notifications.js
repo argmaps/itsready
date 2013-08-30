@@ -48,8 +48,11 @@ $(function() {
         }
     });
 
-    $('form.new_notification')
-        .bind('ajax:beforeSend', function() {
-            $('#create-notification').button('loading');
-        });
+    $('form.new_notification').bind('ajax:beforeSend', function() {
+        $('#create-notification').button('loading');
+    });
+
+    $('.update_notification').click(function() {
+        $(this).button('loading');
+    });
 });

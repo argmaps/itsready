@@ -5,7 +5,9 @@
   <td>
     <%= simple_form_for([current_user, notification]) do |f| %>
       <%= f.input :ready, as: :hidden, input_html: {value: true} %>
-      <%= f.submit 'Send', class: 'btn btn-primary' %>
+      <%= button_tag(:type => 'submit', :class => 'btn btn-primary update_notification', :'data-loading-text' => 'Sending...') do %>
+        Send
+      <% end %>
     <% end %>
   </td>
   <td><%= link_to '', [current_user, notification], method: :delete, remote: true, data: { confirm: 'Delete this notification?' }, class: 'btn fui-cross-24' %></td>
