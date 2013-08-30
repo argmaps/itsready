@@ -39,6 +39,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'newrelic_rpm', '3.6.3.111'
 end
 
 group :doc do

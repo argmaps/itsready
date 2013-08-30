@@ -102,6 +102,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.9)
     multipart-post (1.2.0)
+    newrelic_rpm (3.6.3.111)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -203,6 +204,7 @@ DEPENDENCIES
   country_select (= 1.2.0)
   jquery-rails
   jquery-turbolinks (= 1.0.0)
+  newrelic_rpm (= 3.6.3.111)
   pry
   pry-nav
   pry-stack_explorer
