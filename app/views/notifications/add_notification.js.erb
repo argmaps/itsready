@@ -5,5 +5,3 @@ $('#notification_customer_attributes_phone').attr('disabled', false);
 
 $('#notifications-table tbody').prepend('<%= j render 'notification_row', notification: @notification %>');
 $('#notifications-table tbody tr:first').addClass('success');
-$('#create-notification').attr('disabled', false)
-                         .button('reset');

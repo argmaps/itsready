@@ -48,9 +48,14 @@ $(function() {
         }
     });
 
-    $('form.new_notification').bind('ajax:beforeSend', function() {
-        $('#create-notification').button('loading');
-    });
+    $('form.new_notification')
+        .bind('ajax:beforeSend', function() {
+            $('#create-notification').button('loading');
+        })
+        .bind('ajax:success', function() {
+            $('#create-notification').attr('disabled', false)
+                                     .button('reset');
+        });
 
     $('.update_notification').click(function() {
         $(this).button('loading');
