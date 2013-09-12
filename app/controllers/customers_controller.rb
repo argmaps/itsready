@@ -39,7 +39,10 @@ class CustomersController < ApplicationController
 
   # DELETE /customers/1
   def destroy
-    @customer.destroy
+    Customer.transaction do
+      @customer.notifications.pending.each(&:destroy)
+      @customer.destroy
+    end
     redirect_to user_customers_path, notice: 'Customer was successfully destroyed.'
   end
 
