@@ -14,11 +14,15 @@
           <%= c.input :first_name, as: :hidden %>
           <%= c.input :last_name, as: :hidden %>
         </td>
-        <td class="span5">
+        <td class="span3">
           <%= c.text_field :phone, placeholder: '1203952424' %>
         </td>
-        <td class="span3">
-          <%= hidden_field_tag 'notification[message]', "It's ready." %>
+        <td class="span5">
+          <div class="input string optional notification_message">
+            <input class="string optional" style="width: 100%" id="notification_message" maxlength="160" name="notification[message]" placeholder="Namaste Cocksucka! It's Monday fuckin morning..." size="160" type="text">
+          </div>
+        </td>
+        <td class="span2">
           <%= n.input :ready, label: "Send now.", wrapper_html: {class: 'checkbox'} %>
         </td>
         <td>

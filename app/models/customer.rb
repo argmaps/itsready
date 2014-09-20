@@ -9,6 +9,11 @@ class Customer < ModelThatBelongsToUser
   end
 
   def full_phone
-    user.country_code.to_s + phone.to_s
+    country_code.to_s + phone.to_s
+  end
+
+  def country_code
+    c = Country.find_country_by_alpha2(country)
+    c.country_code
   end
 end

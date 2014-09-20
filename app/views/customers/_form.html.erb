@@ -16,6 +16,7 @@
   <fieldset>
     <%= f.input :first_name, label: false, placeholder: 'First Name', autofocus: true %>
     <%= f.input :last_name, label: false, placeholder: 'Last Name' %>
+    <%= f.country_select :country, nil, iso_codes: true %>
     <%= f.text_field :phone, label: false, placeholder: '1203952424' %>
 
     <div class="form-actions">
@@ -23,3 +24,19 @@
     </div>
   </fieldset>
 <% end %>
+
+<%= content_for :js do %>
+  var format = function(country) {
+    var abbrev = country.id.toUpperCase();
+    return "<i class='icon-flag-"+abbrev+"'></i>"+country.text;
+  };
+  $('#customer_country').select2({
+    width: 206,
+    formatResult: format,
+    formatSelection: format,
+    escapeMarkup: function(c) {
+      return c;
+    }
+  });
+<% end %>
+
