@@ -7,5 +7,5 @@ class Notification < ModelThatBelongsToUser
 
   accepts_nested_attributes_for :customer
 
-  validates_length_of :message, :maximum => 160
+  validates_length_of :message, :maximum => 1600
 end

@@ -13,6 +13,6 @@ class SmsClient
       to: '+' + phone_number,
       body: msg
     }
-    client.account.sms.messages.create(params)
+    client.account.messages.create(params)
   end
 end
